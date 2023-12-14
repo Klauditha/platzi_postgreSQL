@@ -55,3 +55,25 @@ Postgresql.conf: Configuración general de postgres, múltiples opciones referen
 pg_hba.conf: Muestra los roles así como los tipos de acceso a la base de datos.
 
 pg_ident.conf: Permite realizar el mapeo de usuarios. Permite definir roles a usuarios del sistema operativo donde se ejecuta postgres.
+
+## Tipos de Datos
+
+### Principales
+
+- Numéricos
+- Moretarios
+- Texto
+- Binarios
+- Fecha/Hora
+- Boolean
+
+### Especiales
+
+- Geométricos: Con X y Y permiten calcular distancias y areas.
+- Dirección de Red: Almacena IPs y permite hacer calculos de mascaras de red.
+- Texto tipo bit: Calculos en hexadecimal y binario por ejemplo.
+- XML, JSON
+- Arreglos: Vectores y matrices.
+
+- https://www.todopostgresql.com/postgresql-data-types-los-tipos-de-datos-mas-utilizados/
+- https://www.postgresql.org/docs/11/datatype.html
