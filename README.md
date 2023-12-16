@@ -77,3 +77,9 @@ pg_ident.conf: Permite realizar el mapeo de usuarios. Permite definir roles a us
 
 - https://www.todopostgresql.com/postgresql-data-types-los-tipos-de-datos-mas-utilizados/
 - https://www.postgresql.org/docs/11/datatype.html
+
+
+## Utilidades
+
+- Obtener fecha actual
+    ```SELECT current_date```
