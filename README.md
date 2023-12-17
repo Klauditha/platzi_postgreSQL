@@ -137,3 +137,22 @@ GRANT INSERT, SELECT, UPDATE ON TABLE public.trayecto TO usuario_consulta;
 GRANT INSERT, SELECT, UPDATE ON TABLE public.tren TO usuario_consulta;
 GRANT INSERT, SELECT, UPDATE ON TABLE public.viaje TO usuario_consulta;
 ```
+
+## Llaves Foráneas
+
+Ejemplo:
+
+```
+ALTER TABLE public.trayecto
+    ADD FOREIGN KEY (id_estacion)
+    REFERENCES public.estacion (id) MATCH SIMPLE
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+    NOT VALID;
+ALTER TABLE public.trayecto
+    ADD FOREIGN KEY (id_tren)
+    REFERENCES public.tren (id) MATCH SIMPLE
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+    NOT VALID;
+```
