@@ -92,3 +92,48 @@ pg_ident.conf: Permite realizar el mapeo de usuarios. Permite definir roles a us
     ```CREATE TABLE bitacora_viaje201001 PARTITION OF bitacora_viaje
         FOR VALUES FROM ('2010-01-01') TO ('2019-01-31')```
 
+
+## Rol
+
+Un rol puede:
+- Crear y eliminar
+- Asignar atributos
+- Agrupar con otros roles
+- Roles predeterminados
+
+```
+-- Ver las funciones del comando CREATE ROLE (help)
+\h CREATE ROLE;
+
+-- Creamos un ROLE (consultas -&gt; lectura, insertar, actualizar)
+CREATE ROLE usuario_consulta;
+
+-- Mostrar todos los usuarios junto a sus atributos
+\dg
+
+-- Agregamos atributos al usuario o role
+ALTER ROLE  usuario_consulta WITH LOGIN;
+ALTER ROLE  usuario_consulta WITH SUPERUSER;
+ALTER ROLE  usuario_consulta WITH PASSWORD'1234';
+
+-- Elimanos el usuario o role
+DROP ROLE usuario_consulta;
+
+-- La mejor forma de crear un usuario o role por pgadmin
+CREATE ROLE usuario_consulta WITH
+  LOGIN
+  NOSUPERUSER
+  NOCREATEDB
+  NOCREATEROLE
+  INHERIT
+  NOREPLICATION
+  CONNECTION LIMIT -1
+  PASSWORD'1234';
+
+--Para obtorgar privilegios a nuestro usuario_consulta
+GRANT INSERT, SELECT, UPDATE ON TABLE public.estacion TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.pasajero TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.trayecto TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.tren TO usuario_consulta;
+GRANT INSERT, SELECT, UPDATE ON TABLE public.viaje TO usuario_consulta;
+```
